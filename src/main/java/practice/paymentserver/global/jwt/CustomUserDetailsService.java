@@ -1,12 +1,12 @@
-package practice.postserver.global.jwt;
+package practice.paymentserver.global.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import practice.postserver.member.entity.Member;
-import practice.postserver.member.repository.MemberRepository;
+import practice.paymentserver.member.entity.Member;
+import practice.paymentserver.member.repository.MemberRepository;
 
 @Service
 @RequiredArgsConstructor

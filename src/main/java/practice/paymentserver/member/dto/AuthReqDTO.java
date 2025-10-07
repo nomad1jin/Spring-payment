@@ -1,8 +1,8 @@
-package practice.postserver.member.dto;
+package practice.paymentserver.member.dto;
 
 import lombok.Getter;
-import practice.postserver.member.enums.Gender;
-import practice.postserver.member.enums.Type;
+import practice.paymentserver.member.enums.Gender;
+import practice.paymentserver.member.enums.Type;
 
 public class AuthReqDTO {
 

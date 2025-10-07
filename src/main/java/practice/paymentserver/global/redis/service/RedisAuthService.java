@@ -1,4 +1,4 @@
-package practice.postserver.global.redis.service;
+package practice.paymentserver.global.redis.service;
 
 import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import practice.postserver.global.jwt.JwtUtil;
-import practice.postserver.global.redis.entity.RedisRefreshToken;
-import practice.postserver.global.redis.repository.RedisRepository;
+import practice.paymentserver.global.jwt.JwtUtil;
+import practice.paymentserver.global.redis.entity.RedisRefreshToken;
+import practice.paymentserver.global.redis.repository.RedisRepository;
 
 import java.time.Duration;
 import java.util.Date;

@@ -1,14 +1,14 @@
-package practice.postserver.global.apiPayload.exception.handler;
+package practice.paymentserver.global.apiPayload.exception.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import practice.postserver.global.apiPayload.CustomResponse;
-import practice.postserver.global.apiPayload.code.BaseCode;
-import practice.postserver.global.apiPayload.code.CustomException;
-import practice.postserver.global.apiPayload.code.ErrorCode;
+import practice.paymentserver.global.apiPayload.CustomResponse;
+import practice.paymentserver.global.apiPayload.code.BaseCode;
+import practice.paymentserver.global.apiPayload.code.CustomException;
+import practice.paymentserver.global.apiPayload.code.ErrorCode;
 
 import java.util.HashMap;
 import java.util.Map;

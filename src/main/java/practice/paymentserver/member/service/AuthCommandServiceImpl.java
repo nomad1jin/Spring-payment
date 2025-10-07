@@ -1,4 +1,4 @@
-package practice.postserver.member.service;
+package practice.paymentserver.member.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -6,15 +6,15 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import practice.postserver.global.apiPayload.code.CustomException;
-import practice.postserver.global.apiPayload.code.ErrorCode;
-import practice.postserver.global.jwt.JwtUtil;
-import practice.postserver.global.redis.service.RedisAuthService;
-import practice.postserver.member.converter.AuthConverter;
-import practice.postserver.member.dto.AuthReqDTO;
-import practice.postserver.member.dto.AuthResDTO;
-import practice.postserver.member.entity.Member;
-import practice.postserver.member.repository.MemberRepository;
+import practice.paymentserver.global.apiPayload.code.CustomException;
+import practice.paymentserver.global.apiPayload.code.ErrorCode;
+import practice.paymentserver.global.jwt.JwtUtil;
+import practice.paymentserver.global.redis.service.RedisAuthService;
+import practice.paymentserver.member.converter.AuthConverter;
+import practice.paymentserver.member.dto.AuthReqDTO;
+import practice.paymentserver.member.dto.AuthResDTO;
+import practice.paymentserver.member.entity.Member;
+import practice.paymentserver.member.repository.MemberRepository;
 
 @Slf4j
 @Service

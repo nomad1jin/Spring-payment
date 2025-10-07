@@ -1,4 +1,4 @@
-package practice.postserver.member.dto;
+package practice.paymentserver.member.dto;
 
 import lombok.Builder;
 import lombok.Getter;

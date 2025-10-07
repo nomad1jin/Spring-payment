@@ -1,7 +1,7 @@
-package practice.postserver.member.repository;
+package practice.paymentserver.member.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import practice.postserver.member.entity.Member;
+import practice.paymentserver.member.entity.Member;
 
 import java.util.Optional;
 

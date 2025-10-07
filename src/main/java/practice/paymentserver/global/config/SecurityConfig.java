@@ -1,4 +1,4 @@
-package practice.postserver.global.config;
+package practice.paymentserver.global.config;
 
 
 import lombok.RequiredArgsConstructor;
@@ -11,9 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import practice.postserver.global.jwt.CustomUserDetailsService;
-import practice.postserver.global.jwt.JwtFilter;
-import practice.postserver.global.jwt.JwtUtil;
+import practice.paymentserver.global.jwt.CustomUserDetailsService;
+import practice.paymentserver.global.jwt.JwtFilter;
+import practice.paymentserver.global.jwt.JwtUtil;
 
 @Configuration
 @RequiredArgsConstructor

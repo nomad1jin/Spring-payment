@@ -1,4 +1,4 @@
-package practice.postserver.member.controller;
+package practice.paymentserver.member.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import practice.postserver.global.apiPayload.CustomResponse;
-import practice.postserver.global.apiPayload.code.SuccessCode;
-import practice.postserver.member.dto.AuthReqDTO;
-import practice.postserver.member.dto.AuthResDTO;
-import practice.postserver.member.service.AuthCommandService;
+import practice.paymentserver.global.apiPayload.CustomResponse;
+import practice.paymentserver.global.apiPayload.code.SuccessCode;
+import practice.paymentserver.member.dto.AuthReqDTO;
+import practice.paymentserver.member.dto.AuthResDTO;
+import practice.paymentserver.member.service.AuthCommandService;
 
 @Tag(name = "회원가입/로그인 API")
 @RestController

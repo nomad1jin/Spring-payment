@@ -1,4 +1,4 @@
-package practice.postserver.global.apiPayload.code;
+package practice.paymentserver.global.apiPayload.code;
 
 import lombok.Getter;
 

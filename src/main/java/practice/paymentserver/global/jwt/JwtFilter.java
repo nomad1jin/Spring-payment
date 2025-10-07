@@ -1,4 +1,4 @@
-package practice.postserver.global.jwt;
+package practice.paymentserver.global.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -9,8 +9,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
-import practice.postserver.global.apiPayload.code.CustomException;
-import practice.postserver.global.apiPayload.code.ErrorCode;
+import practice.paymentserver.global.apiPayload.code.CustomException;
+import practice.paymentserver.global.apiPayload.code.ErrorCode;
 
 import java.io.IOException;
 

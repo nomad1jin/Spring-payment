@@ -1,4 +1,4 @@
-package practice.postserver.global.redis.entity;
+package practice.paymentserver.global.redis.entity;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

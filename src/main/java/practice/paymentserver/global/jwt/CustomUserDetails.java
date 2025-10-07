@@ -1,10 +1,10 @@
-package practice.postserver.global.jwt;
+package practice.paymentserver.global.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import practice.postserver.member.entity.Member;
+import practice.paymentserver.member.entity.Member;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -1,19 +1,16 @@
-package practice.postserver.member.entity;
+package practice.paymentserver.member.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import practice.postserver.member.enums.Gender;
-import practice.postserver.member.enums.Type;
-import practice.postserver.pet.entity.Pet;
-import practice.postserver.story.entity.Comment;
-import practice.postserver.story.entity.Like;
-import practice.postserver.story.entity.Story;
+import practice.paymentserver.member.enums.Gender;
+import practice.paymentserver.member.enums.Type;
+import practice.paymentserver.payment.entity.Payment;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Getter
 @Entity
@@ -57,15 +54,8 @@ public class Member {
     @Column(nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Story> storyList = new ArrayList<>();
+    private int boneBalance;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> commentList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Like> likeList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pet> petList = new ArrayList<>();
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    List<Payment> payments;
 }

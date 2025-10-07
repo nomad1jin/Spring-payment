@@ -1,4 +1,4 @@
-package practice.postserver.global.redis.config;
+package practice.paymentserver.global.redis.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableRedisRepositories(
-        basePackages = "practice.postserver.global.redis.repository"
+        basePackages = "practice.paymentserver.global.redis.repository"
 )
 @RequiredArgsConstructor
 public class RedisConfig {

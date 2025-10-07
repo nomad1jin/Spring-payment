@@ -1,4 +1,4 @@
-package practice.postserver.global.apiPayload;
+package practice.paymentserver.global.apiPayload;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.springframework.http.HttpStatus;
-import practice.postserver.global.apiPayload.code.BaseCode;
+import practice.paymentserver.global.apiPayload.code.BaseCode;
 
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)

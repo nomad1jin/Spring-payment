@@ -1,9 +1,9 @@
-package practice.postserver.member.converter;
+package practice.paymentserver.member.converter;
 
 import org.springframework.stereotype.Component;
-import practice.postserver.member.dto.AuthReqDTO;
-import practice.postserver.member.dto.AuthResDTO;
-import practice.postserver.member.entity.Member;
+import practice.paymentserver.member.dto.AuthReqDTO;
+import practice.paymentserver.member.dto.AuthResDTO;
+import practice.paymentserver.member.entity.Member;
 
 @Component
 public class AuthConverter {

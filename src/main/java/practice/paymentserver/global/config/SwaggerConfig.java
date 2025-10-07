@@ -1,4 +1,4 @@
-package practice.postserver.global.config;
+package practice.paymentserver.global.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

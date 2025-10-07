@@ -1,10 +1,10 @@
-package practice.postserver.member.service;
+package practice.paymentserver.member.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import practice.postserver.member.dto.AuthReqDTO;
-import practice.postserver.member.dto.AuthResDTO;
-import practice.postserver.member.entity.Member;
+import practice.paymentserver.member.dto.AuthReqDTO;
+import practice.paymentserver.member.dto.AuthResDTO;
+import practice.paymentserver.member.entity.Member;
 
 
 public interface AuthCommandService {

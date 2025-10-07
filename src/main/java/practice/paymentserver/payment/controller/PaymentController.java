@@ -17,15 +17,15 @@ import practice.paymentserver.payment.service.PaymentCommandServiceImpl;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/payment")
+@RequestMapping("/api/v1/payments")
 public class PaymentController {
 
     private final PaymentCommandServiceImpl paymentCommandService;
 
-    @PostMapping
-    public CustomResponse<PaymentResDTO> requestTossPayment(@AuthenticationPrincipal CustomUserDetails userDetails,
-                                                            @RequestBody PaymentReqDTO dto) {
-        PaymentResDTO resDTO = paymentCommandService.savePayment(dto, userDetails.getId());
+    @PostMapping("/toss")
+    public CustomResponse<PaymentResDTO.PaymentDTO> requestTossPayment(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                                        @RequestBody PaymentReqDTO dto) {
+        PaymentResDTO.PaymentDTO resDTO = paymentCommandService.confirmAndProcessPayment(dto, userDetails.getId());
         return CustomResponse.onSuccess(SuccessCode.OK, resDTO);
     }
 }

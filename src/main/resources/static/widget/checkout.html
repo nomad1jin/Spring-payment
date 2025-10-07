@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>멍냥포 결제 테스트</title>
+    <script src="https://js.tosspayments.com/v1/payment-widget"></script>
+</head>
+<body>
+<h1>멍냥포 결제창 테스트</h1>
+<button id="payment-button">결제하기</button>
+
+<script>
+    const clientKey = "test_ck_ORzdMaqN3wPB1JpjlYxgV5AkYXQG"; // ★ test_ck_ 키 입력
+    const tossPayments = TossPayments(clientKey);
+
+    document.getElementById("payment-button").addEventListener("click", function () {
+        tossPayments.requestPayment("카드", {
+            amount: 1000,
+            orderId: "order-" + new Date().getTime(),
+            orderName: "멍냥포 뼈다귀 1개",
+            successUrl: "http://localhost:8080/success",
+            failUrl: "http://localhost:8080/fail",
+        });
+    });
+</script>
+</body>
+</html>

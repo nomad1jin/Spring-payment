@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.paymentserver.global.apiPayload.code.CustomException;
+import practice.paymentserver.global.apiPayload.code.ErrorCode;
 import practice.paymentserver.member.enums.Gender;
 import practice.paymentserver.member.enums.Type;
 import practice.paymentserver.payment.entity.Payment;
@@ -58,4 +60,11 @@ public class Member {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     List<Payment> payments;
+
+    public void chargePoint(int amount) {
+        if (amount < 1000) {
+            throw new CustomException(ErrorCode.INSUFFICIENT_BALANCE);
+        }
+        this.boneBalance += amount;
+    }
 }

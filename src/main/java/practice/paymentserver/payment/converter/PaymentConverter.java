@@ -1,7 +1,5 @@
 package practice.paymentserver.payment.converter;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import practice.paymentserver.member.entity.Member;
 import practice.paymentserver.payment.dto.PaymentReqDTO;
@@ -12,17 +10,27 @@ import java.time.LocalDateTime;
 
 @Component
 public class PaymentConverter {
-    public Payment toPayment(PaymentReqDTO dto, Member member) {
+    public Payment toPayment(PaymentResDTO.PaymentDTO dto, Member member) {
         return Payment.builder()
-                .orderName(dto.getOrderName())
+                .paymentKey(dto.getPaymentKey())
                 .orderId(dto.getOrderId())
-                .totalAmount(dto.getAmount())
-                .status("READY")
-                .paySuccessYN(false)
+                .orderName(dto.getOrderName())
+                .totalAmount(dto.getTotalAmount())
+                .method(dto.getMethod())
+                .status(dto.getStatus())
                 .member(member)
+                .approvedAt(dto.getApprovedAt())
                 .build();
     }
 
-    public PaymentResDTO.SuccessDTO toPaymentResDTO() {
+    public PaymentResDTO.PaymentDTO toPaymentResDTO(Payment payment) {
+        return PaymentResDTO.PaymentDTO.builder()
+                .paymentKey(payment.getPaymentKey())
+                .orderId(payment.getOrderId())
+                .orderName(payment.getOrderName())
+                .totalAmount(payment.getTotalAmount())
+                .method(payment.getMethod())
+                .status(payment.getStatus())
+                .build();
     }
 }

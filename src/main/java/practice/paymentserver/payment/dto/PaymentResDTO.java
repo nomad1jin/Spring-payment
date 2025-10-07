@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public class PaymentResDTO {
 
@@ -13,31 +14,14 @@ public class PaymentResDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public static class SuccessDTO{
-//        private String paymentKey;
-        private String orderId;
-        private String orderName;
-        private int amount;
-        private String method;
-        private String status;
-        private String successUrl;
-        private LocalDateTime approvedAt;
-    }
-
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class FailDTO {
+    public static class PaymentDTO {
         private String paymentKey;
         private String orderId;
         private String orderName;
-        private String method;
-        private String status;
-        private String failUrl;
-        private String failReason;
-        private boolean cancelYN;
-        private String cancelReason;
-        private LocalDateTime approvedAt;
+        private int totalAmount;
+        private String method;          // 결제수단
+        private String status;          // 결제상태
+        private OffsetDateTime requestedAt;     // 결제 요청 시각
+        private OffsetDateTime approvedAt;      // 결제 승인 시각
     }
 }

@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.paymentserver.member.entity.Member;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -26,19 +26,10 @@ public class Payment {
     private String status;         // DONE / CANCELED / FAILED
     private int totalAmount;       // 총 결제금액
     private boolean paySuccessYN;
-    private LocalDateTime approvedAt; // 결제 승인 시각
-//    private String receiptUrl;     // 영수증 URL
+    private OffsetDateTime approvedAt; // 결제 승인 시각
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    // 결제 성공 처리
-    public void approvePayment(String paymentKey, String method) {
-        this.paymentKey = paymentKey;
-        this.paySuccessYN = true;
-        this.status = "DONE";
-        this.approvedAt = LocalDateTime.now();
-        this.method = method;
-    }
 }

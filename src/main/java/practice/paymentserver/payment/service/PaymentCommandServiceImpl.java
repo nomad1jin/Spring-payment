@@ -39,7 +39,7 @@ public class PaymentCommandServiceImpl {
     private final PaymentConfig paymentConfig;
 
     public PaymentResDTO.PrepareDTO preparePayment(PaymentReqDTO.PrepareDTO dto, Long memberId) {
-        log.info("[ 결제 준비 시작 - 회원ID: {} ]", memberId);
+        log.info("[ 결제 준비 시작 - 회원ID: {}, ItemId: {} ]", memberId, dto.getItemId());
 
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOTFOUND));

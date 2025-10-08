@@ -29,12 +29,7 @@ public class SecurityConfig {
             "/swagger-ui/**",
             "/swagger-resources/**",
             "/v3/api-docs/**",
-            "/payment/**",
-            "/api/v1/payments/**",
-            "/*.html",  // 모든 HTML 파일
-            "/*.css",   // CSS 파일
-            "/*.js",    // JS 파일
-            "/error"    // 에러 페이지
+            "/api/payment/**"
     };
 
     @Bean

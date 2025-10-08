@@ -2,7 +2,6 @@ package practice.paymentserver.payment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,20 +11,24 @@ import practice.paymentserver.global.apiPayload.code.SuccessCode;
 import practice.paymentserver.global.jwt.CustomUserDetails;
 import practice.paymentserver.payment.dto.PaymentReqDTO;
 import practice.paymentserver.payment.dto.PaymentResDTO;
-import practice.paymentserver.payment.entity.Payment;
 import practice.paymentserver.payment.service.PaymentCommandServiceImpl;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/payments")
+@RequestMapping("/api/payment")
 public class PaymentController {
 
     private final PaymentCommandServiceImpl paymentCommandService;
 
-    @PostMapping("/toss")
-    public CustomResponse<PaymentResDTO.PaymentDTO> requestTossPayment(@AuthenticationPrincipal CustomUserDetails userDetails,
-                                                                        @RequestBody PaymentReqDTO dto) {
-        PaymentResDTO.PaymentDTO resDTO = paymentCommandService.confirmAndProcessPayment(dto, userDetails.getId());
-        return CustomResponse.onSuccess(SuccessCode.OK, resDTO);
+    @PostMapping("/prepare")
+    public CustomResponse<PaymentResDTO.PrepareDTO> request(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                            @RequestBody PaymentReqDTO.PrepareDTO dto) {
+        return CustomResponse.onSuccess(SuccessCode.OK, paymentCommandService.preparePayment(dto, userDetails.getId()));
+    }
+
+    @PostMapping("/approve")
+    public CustomResponse<PaymentResDTO.ApproveDTO> confirm(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                            @RequestBody PaymentReqDTO.ApproveDTO dto) {
+        return CustomResponse.onSuccess(SuccessCode.OK, paymentCommandService.approvePayment(dto, userDetails.getId()));
     }
 }

@@ -37,10 +37,18 @@ public enum ErrorCode implements BaseCode {
     MEMBER_NOTFOUND(HttpStatus.NOT_FOUND, "MEMBER_404", "등록된 회원이 없습니다."),
 
     // 결제 관련 에러 추가
-    PAYMENT_CONFIRMATION_FAILED(HttpStatus.BAD_REQUEST, "PAYMENT_400", "결제 승인에 실패했습니다"),
-    PAYMENT_PROCESSING_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "PAYMENT_500","결제 처리 중 오류가 발생했습니다"),
-    DUPLICATE_PAYMENT(HttpStatus.CONFLICT, "PAYMENT_409","이미 처리된 결제입니다")
-    , INSUFFICIENT_BALANCE(HttpStatus.BAD_REQUEST, "PAYMENT_400", "결제 금액은 1000원 이상만 가능합니다.");
+    INSUFFICIENT_BALANCE(HttpStatus.BAD_REQUEST, "PAYMENT_400", "결제 금액은 1000원 이상만 가능합니다."),
+    ITEM_NOTFOUND(HttpStatus.NOT_FOUND, "ITEM404", "구매할 물품이 없습니다."),
+    PAYMENT_NOTFOUND(HttpStatus.NOT_FOUND, "PAYMENT404", "결제가 없습니다."),
+    PAYMENT_AMOUNT_MISMATCH(HttpStatus.BAD_REQUEST, "PAYMENT_400", "결제 금액이 일치하지 않습니다."),
+    PAYMENT_WAITING_FOR_DEPOSIT(HttpStatus.BAD_REQUEST, "PAYMENT400", "가상계좌 입금이 아직 완료되지 않았습니다."),
+    PAYMENT_IN_PROGRESS(HttpStatus.BAD_REQUEST, "PAYMENT400", "결제 인증은 완료되었으나, 아직 최종 승인되지 않았습니다."),
+    PAYMENT_CANCELED(HttpStatus.BAD_REQUEST, "PAYMENT400", "결제가 취소되었습니다."),
+    PAYMENT_ABORTED(HttpStatus.BAD_REQUEST, "PAYMENT400", "결제 승인이 실패했습니다."),
+    PAYMENT_EXPIRED(HttpStatus.BAD_REQUEST, "PAYMENT400", "결제 유효 시간이 만료되어 결제가 취소되었습니다."),
+    PAYMENT_PARTIAL_CANCELED(HttpStatus.BAD_REQUEST, "PAYMENT400", "결제가 부분 취소되었습니다."),
+    PAYMENT_UNSPECIFIED_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "PAYMENT500", "결제/환불 상태가 불분명하여 처리에 실패했습니다."),
+    PAYMENT_PROCESSING_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "PAYMENT500", "토스 결제 응답이 없습니다.");
 
     private final HttpStatus httpStatus;
     private final String code;

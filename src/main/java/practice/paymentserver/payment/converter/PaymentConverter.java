@@ -1,35 +1,38 @@
 package practice.paymentserver.payment.converter;
 
 import org.springframework.stereotype.Component;
+import practice.paymentserver.item.Item;
 import practice.paymentserver.member.entity.Member;
-import practice.paymentserver.payment.dto.PaymentReqDTO;
 import practice.paymentserver.payment.dto.PaymentResDTO;
 import practice.paymentserver.payment.entity.Payment;
-
-import java.time.LocalDateTime;
+import practice.paymentserver.payment.enums.OrderStatus;
 
 @Component
 public class PaymentConverter {
-    public Payment toPayment(PaymentResDTO.PaymentDTO dto, Member member) {
+    public Payment toPayment(String orderId, String orderName, Item item, Member member) {
         return Payment.builder()
-                .paymentKey(dto.getPaymentKey())
-                .orderId(dto.getOrderId())
-                .orderName(dto.getOrderName())
-                .totalAmount(dto.getTotalAmount())
-                .method(dto.getMethod())
-                .status(dto.getStatus())
+                .orderId(orderId)
+                .orderName(orderName)
+                .totalAmount(item.getPrice())
+                .status(OrderStatus.READY)
                 .member(member)
-                .approvedAt(dto.getApprovedAt())
                 .build();
     }
 
-    public PaymentResDTO.PaymentDTO toPaymentResDTO(Payment payment) {
-        return PaymentResDTO.PaymentDTO.builder()
-                .paymentKey(payment.getPaymentKey())
+    public PaymentResDTO.PrepareDTO toPrepareDTO(Payment payment) {
+        return PaymentResDTO.PrepareDTO.builder()
                 .orderId(payment.getOrderId())
                 .orderName(payment.getOrderName())
                 .totalAmount(payment.getTotalAmount())
-                .method(payment.getMethod())
+                .status(payment.getStatus())
+                .build();
+    }
+
+    public PaymentResDTO.ApproveDTO toApproveDTO(PaymentResDTO.TossResponseDTO responseDto, Payment payment) {
+        return PaymentResDTO.ApproveDTO.builder()
+                .orderId(responseDto.getOrderId())
+                .orderName(responseDto.getOrderName())
+                .totalAmount(responseDto.getTotalAmount())
                 .status(payment.getStatus())
                 .build();
     }

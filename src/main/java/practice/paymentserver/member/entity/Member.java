@@ -56,15 +56,16 @@ public class Member {
     @Column(nullable = false)
     private String email;
 
-    private int boneBalance;
+    private Integer boneBalance;    // 보유한 뼈다귀 수량, 1뼈다귀 = 1000원
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     List<Payment> payments;
 
-    public void chargePoint(int amount) {
-        if (amount < 1000) {
+    public void chargePoint(Integer amount) {
+        if (!amount.equals(5000) && !amount.equals(10000)
+                && !amount.equals(20000) && !amount.equals(30000)) {
             throw new CustomException(ErrorCode.INSUFFICIENT_BALANCE);
         }
-        this.boneBalance += amount;
+        this.boneBalance += amount / 1000;
     }
 }
